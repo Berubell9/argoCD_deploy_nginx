@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 1  # จำนวน pod ของ Nginx ที่จะสร้าง
+  replicas: 1  
   selector:
     matchLabels:
       app: nginx
@@ -16,19 +16,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.21  # ใช้ image ของ Nginx ล่าสุด
+        image: nginx:1.21  
         ports:
-        - containerPort: 80  # เปิด port 80 ให้บริการ
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-service
-spec:
-  selector:
-    app: nginx
-  ports:
-    - protocol: TCP
-      port: 80  # เปิด port 80
-      targetPort: 80
-  type: NodePort  # ทำให้สามารถเข้าถึงจากภายนอกได้
+        - containerPort: 80
