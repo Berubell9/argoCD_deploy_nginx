@@ -13,7 +13,7 @@ spec:
             url: https://103.74.253.23:6443
   template:
     metadata:
-      name: 'my-app-{{cluster}}'
+      name: 'my-app-{{.cluster}}'
     spec:
       project: default
       source:
@@ -21,5 +21,5 @@ spec:
         targetRevision: main
         path: manifest
       destination:
-        server: '{{url}}'
+        server: '{{.url}}'
         namespace: default
