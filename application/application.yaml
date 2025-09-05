@@ -4,6 +4,7 @@ metadata:
   name: applications
   namespace: argocd
 spec:
+  project: default
   source:
     repoURL: https://github.com/Berubell9/argoCD_test.git
     targetRevision: main
