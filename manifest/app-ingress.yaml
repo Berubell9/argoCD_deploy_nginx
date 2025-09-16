@@ -1,35 +1,13 @@
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: hello-world-app-ingress
-#   namespace: default
-#   annotations:
-#      kubernetes.io/ingress.class: "nginx"
-# spec:
-#   rules:
-#   - host: hello-world-app.lun.com 
-#     http:
-#       paths:
-#       - path: /
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: hello-world-app-service
-#             port:
-#               number: 80
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-app-ingress
   namespace: default
   annotations:
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    kubernetes.io/ingress.class: "nginx"
+     kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: nginx
   rules:
-  - host: argocd-cluster02.lun.com
+  - host: hello-world-app-cluster.lun.com 
     http:
       paths:
       - path: /
@@ -38,4 +16,4 @@ spec:
           service:
             name: hello-world-app-service
             port:
-              name: http
+              number: 80
